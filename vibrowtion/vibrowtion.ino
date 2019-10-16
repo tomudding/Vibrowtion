@@ -24,7 +24,7 @@
 #include <vector>
 
 // define local device as peripheral
-BLEService profilerService("12566370-6212-4683-B567-037441918442");
+BLEService vibrowtionService("12566370-6212-4683-A567-037441918442");
 BLEIntCharacteristic mlpCharacteristic("12566370-6212-4683-B567-037441918442", BLERead | BLENotify);
 
 std::vector<int> layers{1,8,8,8,3};
@@ -48,9 +48,9 @@ void setup() {
     // set advertised local name and service UUID, add characteristic
     // to the service, attach the service, and start advertising
     BLE.setLocalName("Vibrowtion");
-    BLE.setAdvertisedService(profilerService);
-    profilerService.addCharacteristic(mlpCharacteristic);
-    BLE.addService(profilerService);
+    BLE.setAdvertisedService(vibrowtionService);
+    vibrowtionService.addCharacteristic(mlpCharacteristic);
+    BLE.addService(vibrowtionService);
     mlpCharacteristic.writeValue(0);
     BLE.advertise();
 
